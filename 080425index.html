@@ -3,27 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvas Banner Creator</title>
+  <title>Beta Canvas Banner Creator</title>
   
   <!-- External Libraries -->
      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Oswald:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Quicksand:wght@300;400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700&family=Inconsolata:wght@400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
-  <script>
-    // Check if Fabric.js loaded properly
-    window.addEventListener('load', function() {
-      if (typeof fabric === 'undefined') {
-        console.error('Fabric.js failed to load!');
-        alert('Fabric.js library failed to load. Please refresh the page.');
-      } else {
-        console.log('Fabric.js loaded successfully:', fabric.version);
-      }
-      
-      
-    });
-  </script>
   
   <style>
          /* CSS Variables for Sinclair Brand Colors */
@@ -612,103 +597,6 @@
       padding: var(--spacing-sm);
     }
 
-    /* Icon Search Styles */
-    .icon-search-container {
-      display: flex;
-      gap: var(--spacing-sm);
-      margin-bottom: var(--spacing-md);
-    }
-
-    .icon-search-container input {
-      flex: 1;
-    }
-
-    .icon-categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-sm);
-      margin-bottom: var(--spacing-md);
-    }
-
-    .icon-category {
-      padding: var(--spacing-sm) var(--spacing-md);
-      background: var(--surface-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius-md);
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .icon-category:hover {
-      background: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-      transform: translateY(-1px);
-    }
-
-    .icon-results {
-      max-height: 200px;
-      overflow-y: auto;
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius-md);
-      background: #ffffff;
-      padding: var(--spacing-sm);
-      margin-bottom: var(--spacing-md);
-    }
-
-    .icon-result {
-      display: flex;
-      align-items: center;
-      padding: var(--spacing-sm);
-      cursor: pointer;
-      border-radius: var(--border-radius-sm);
-      transition: all 0.2s ease;
-      margin-bottom: var(--spacing-xs);
-    }
-
-    .icon-result:hover {
-      background: rgba(97, 99, 102, 0.1);
-    }
-
-    .icon-result.selected {
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .icon-result svg {
-      width: 20px;
-      height: 20px;
-      margin-right: var(--spacing-sm);
-      flex-shrink: 0;
-    }
-
-
-
-    .icon-result .icon-name {
-      font-size: 12px;
-      flex: 1;
-    }
-
-    .selected-icon-info {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-      padding: var(--spacing-sm);
-      background: var(--surface-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius-md);
-      font-size: 12px;
-    }
-
-    .selected-icon-info svg {
-      width: 24px;
-      height: 24px;
-    }
-
-
-
     .form-group input[type="range"] {
       width: 70%;
       margin-right: var(--spacing-sm);
@@ -1012,7 +900,7 @@
         overflow: hidden;
         position: sticky;
         top: 20px;
-        z-index: 1000;
+        z-index: 100;
         margin-bottom: var(--spacing-xl);
       }
       
@@ -1021,8 +909,6 @@
         border-radius: var(--border-radius-md);
         margin: 0 auto;
         max-width: 100%;
-        position: relative;
-        z-index: 1001;
       }
       
       .preview-panel::before {
@@ -1033,13 +919,6 @@
         right: 0;
         height: 1px;
         background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-        z-index: 1003;
-      }
-      
-      /* Ensure no elements appear behind the preview panel */
-      .preview-panel * {
-        position: relative;
-        z-index: 1004;
       }
 
                    .preview-panel h2 {
@@ -1070,7 +949,6 @@
          transition: all 0.3s ease;
          margin: 0 auto;
          border: 1px solid rgba(255, 255, 255, 0.1);
-         z-index: 1002;
        }
 
     #bgImage {
@@ -1684,7 +1562,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 10000;
+      z-index: 1000;
       backdrop-filter: blur(5px);
     }
 
@@ -1805,336 +1683,6 @@
     .popup-footer .btn {
       min-width: 120px;
     }
-
-    /* Help Panel */
-.help-panel {
-  position: fixed;
-  top: 50%;
-  right: -400px;
-  transform: translateY(-50%);
-  width: 380px;
-  height: 80vh;
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transition: right 0.3s ease;
-  overflow: hidden;
-}
-
-.help-panel.active {
-  right: 20px;
-}
-
-.help-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-md);
-  background: var(--primary-color);
-  color: white;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.help-header h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.help-close {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-.help-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.help-content {
-  padding: var(--spacing-md);
-  height: calc(100% - 60px);
-  overflow-y: auto;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.help-section {
-  margin-bottom: var(--spacing-lg);
-}
-
-.help-section h4 {
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-sm);
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.help-section p {
-  margin-bottom: var(--spacing-sm);
-  color: #666;
-}
-
-.help-tip {
-  background: #f8f9fa;
-  border-left: 4px solid var(--primary-color);
-  padding: var(--spacing-sm);
-  margin: var(--spacing-sm) 0;
-  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
-}
-
-.help-tip strong {
-  color: var(--primary-color);
-}
-
-.help-toggle {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-.help-toggle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
-
-    .help-toggle span {
-      display: block;
-      line-height: 1;
-    }
-
-    /* Logo Type Buttons */
-    .logo-type-buttons {
-      display: flex;
-      gap: var(--spacing-sm);
-      margin-top: var(--spacing-xs);
-    }
-
-    .logo-type-btn {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--spacing-sm) var(--spacing-md);
-      border: 2px solid var(--border-color);
-      border-radius: var(--border-radius-sm);
-      background: var(--surface-color-solid);
-      color: var(--text-primary);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 12px;
-      font-weight: 600;
-      min-height: 60px;
-    }
-
-    .logo-type-btn:hover {
-      border-color: var(--primary-color);
-      background: var(--surface-color);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .logo-type-btn.active {
-      background: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-      box-shadow: var(--shadow-md);
-    }
-
-    .logo-type-btn.active:hover {
-      background: var(--primary-color);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .logo-type-icon {
-      font-size: 18px;
-      margin-bottom: var(--spacing-xs);
-      display: block;
-    }
-
-    .logo-type-text {
-      font-size: 11px;
-      text-align: center;
-      line-height: 1.2;
-    }
-
-    /* Fabric.js Button Styles */
-    .filter-buttons, .transform-buttons, .effect-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-xs);
-      margin-top: var(--spacing-xs);
-    }
-
-    .filter-btn, .transform-btn, .effect-btn {
-      padding: var(--spacing-xs) var(--spacing-sm);
-      border: 2px solid var(--border-color);
-      border-radius: var(--border-radius-sm);
-      background: var(--surface-color-solid);
-      color: var(--text-primary);
-      font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      flex: 1;
-      min-width: 80px;
-      text-align: center;
-    }
-
-    .filter-btn:hover, .transform-btn:hover, .effect-btn:hover {
-      border-color: var(--primary-color);
-      background: var(--surface-color);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .filter-btn:active, .transform-btn:active, .effect-btn:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    /* HTML Preview Container */
-.html-preview-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--surface-color-solid);
-      border-radius: var(--border-radius-lg);
-      box-shadow: var(--shadow-xl);
-      width: 90%;
-      max-width: 800px;
-      max-height: 80vh;
-      overflow: hidden;
-      border: 2px solid var(--primary-color);
-      display: none;
-      z-index: 1000;
-    }
-
-    .html-preview-content {
-      background: var(--surface-color-solid);
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .html-preview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--spacing-lg);
-      border-bottom: 1px solid var(--border-color);
-      background: linear-gradient(135deg, var(--primary-color), #061a2e);
-      color: white;
-    }
-
-    .html-preview-header h3 {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-
-    .html-preview-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.8rem;
-      cursor: pointer;
-      padding: 0;
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-    }
-
-    .html-preview-close:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
-
-    .html-preview-body {
-      padding: var(--spacing-lg);
-      max-height: calc(80vh - 120px);
-      overflow-y: auto;
-    }
-
-    .html-preview-controls {
-      display: flex;
-      gap: var(--spacing-sm);
-      margin-bottom: var(--spacing-md);
-      flex-wrap: wrap;
-    }
-
-    .html-code-container {
-      background: #1e1e1e;
-      border-radius: var(--border-radius-sm);
-      border: 1px solid var(--border-color);
-      overflow: hidden;
-    }
-
-    .html-code {
-      margin: 0;
-      padding: var(--spacing-md);
-      background: #1e1e1e;
-      color: #d4d4d4;
-      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
-    .html-code::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-
-    .html-code::-webkit-scrollbar-track {
-      background: #2d2d2d;
-    }
-
-    .html-code::-webkit-scrollbar-thumb {
-      background: #555;
-      border-radius: 4px;
-    }
-
-    .html-code::-webkit-scrollbar-thumb:hover {
-      background: #777;
-    }
-
-
   </style>
 </head>
 <body>
@@ -2206,7 +1754,7 @@
              <p id="bannerSubtitle3"></p>
            </div>
            <img id="logoImage" alt="Logo" style="display: none;" />
-        <div id="logoIcon" style="display: none; font-size: 120px; color: #ffffff; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center;"></div>
+        <div id="logoIcon" style="display: none; font-size: 120px; color: #ffffff; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"></div>
            <div class="crop-overlay" id="cropOverlay">
              <div class="crop-window" id="cropWindow"></div>
            </div>
@@ -2215,22 +1763,6 @@
         </div>
         <div id="messageContainer"></div>
       </div>
-      
-      <!-- Help Panel -->
-      <div class="help-panel" id="helpPanel">
-        <div class="help-header">
-          <h3>💡 Help & Tips</h3>
-          <button class="help-close" onclick="toggleHelpPanel()">×</button>
-        </div>
-        <div class="help-content" id="helpContent">
-          <!-- Help content will be loaded here -->
-        </div>
-      </div>
-      
-      <!-- Help Toggle Button -->
-      <button class="help-toggle" onclick="toggleHelpPanel()" title="Show/Hide Help" style="z-index: 9999;">
-        <span>?</span>
-      </button>
 
       <!-- Controls Panel -->
       <div class="controls-panel">
@@ -2429,7 +1961,7 @@
              </div>
              
              <div class="form-group">
-                                 <button class="btn-primary" onclick="clearBackgroundColor()">Clear Background Color</button>
+               <button class="btn-clear" onclick="clearBackgroundColor()">Clear Background Color</button>
              </div>
             
             <div class="form-group">
@@ -2579,56 +2111,34 @@
                </div>
                
                <div class="form-group">
-                 <label>Logo Type</label>
-                 <div class="logo-type-buttons">
-                   <button type="button" class="logo-type-btn active" data-type="upload" onclick="setLogoType('upload')">
-                     <span class="logo-type-icon">📁</span>
-                     <span class="logo-type-text">Upload Image</span>
-                   </button>
-                   <button type="button" class="logo-type-btn" data-type="icon" onclick="setLogoType('icon')">
-                     <span class="logo-type-icon">🎨</span>
-                     <span class="logo-type-text">Icon/Emoji</span>
-                   </button>
-                 </div>
-                 <input type="hidden" id="logoType" value="upload">
+                 <label for="logoType">Logo Type</label>
+                 <select id="logoType">
+                   <option value="upload">Upload Image</option>
+                   <option value="icon">Icon/Emoji</option>
+                 </select>
                </div>
                
                <div class="form-group" id="iconControls" style="display: none;">
-                 <label for="iconSearch">Search Icons</label>
-                 <div class="icon-search-container">
-                   <input type="text" id="iconSearch" placeholder="Search icons (e.g., graduation, book, calculator, halloween, christmas)" value="graduation-cap">
-                   <button class="btn btn-secondary" onclick="searchIcons()">Search</button>
+                 <label for="iconEmoji">Icon/Emoji</label>
+                 <input type="text" id="iconEmoji" placeholder="🎓" value="🎓">
+                 <div class="emoji-suggestions">
+                   <span class="emoji-option" onclick="selectEmoji('🎓')">🎓</span>
+                   <span class="emoji-option" onclick="selectEmoji('📚')">📚</span>
+                   <span class="emoji-option" onclick="selectEmoji('💡')">💡</span>
+                   <span class="emoji-option" onclick="selectEmoji('🔬')">🔬</span>
+                   <span class="emoji-option" onclick="selectEmoji('🎨')">🎨</span>
+                   <span class="emoji-option" onclick="selectEmoji('💻')">💻</span>
+                   <span class="emoji-option" onclick="selectEmoji('🏥')">🏥</span>
+                   <span class="emoji-option" onclick="selectEmoji('⚙️')">⚙️</span>
+                   <span class="emoji-option" onclick="selectEmoji('🌟')">🌟</span>
+                   <span class="emoji-option" onclick="selectEmoji('🎯')">🎯</span>
                  </div>
-                 
-                 <div class="icon-categories">
-                   <span class="icon-category" onclick="searchIconsByCategory('education')">Education</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('science')">Science</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('technology')">Technology</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('business')">Business</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('arts')">Arts</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('health')">Health</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('halloween')">Halloween</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('christmas')">Christmas</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('food')">Food</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('nature')">Nature</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('transport')">Transport</span>
-                   <span class="icon-category" onclick="searchIconsByCategory('all')">All Icons</span>
-                 </div>
-                 
-                 <div class="icon-results" id="iconResults">
-                   <!-- Icon search results will appear here -->
-                 </div>
-                 
-                 <div class="selected-icon-info">
-                   <label>Selected Icon:</label>
-                   <span id="selectedIconName">🎓</span>
-                   <span id="selectedIconPreview"></span>
-                 </div>
-                 
-
                </div>
                
-
+               <div class="form-group" id="iconColorControl" style="display: none;">
+                 <label for="iconColor">Icon Color</label>
+                 <input type="color" id="iconColor" value="#ffffff">
+               </div>
               
               <div class="form-group">
                 <label>Logo Size</label>
@@ -2741,91 +2251,7 @@
             </div>
           </div>
 
-          <!-- Fabric.js Image Editing Section (Hidden) -->
-          <div class="control-section" style="display: none;">
-            <div class="section-header" onclick="toggleSection('fabricSection')">
-              <h3>🎨 Advanced Image Editing</h3>
-              <span class="section-toggle" id="fabricToggle">▼</span>
-            </div>
-            <div class="section-content" id="fabricSection">
-              <div class="form-group">
-                <label>Image Editor</label>
-                <button type="button" class="btn btn-primary" onclick="openFabricEditor()">
-                  <span>✏️</span> Open Image Editor
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="applyFabricChanges()">
-                  <span>✅</span> Apply Changes
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="resetFabricChanges()">
-                  <span>🔄</span> Reset
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="testFabric()" style="margin-top: 5px;">
-                  <span>🔧</span> Test Fabric.js
-                </button>
-              </div>
-
-              <div class="form-group">
-                <label>Image Filters</label>
-                <div class="filter-buttons">
-                  <button type="button" class="filter-btn" onclick="applyFilter('brightness', 1.2)">Brightness +</button>
-                  <button type="button" class="filter-btn" onclick="applyFilter('brightness', 0.8)">Brightness -</button>
-                  <button type="button" class="filter-btn" onclick="applyFilter('contrast', 1.3)">Contrast +</button>
-                  <button type="button" class="filter-btn" onclick="applyFilter('contrast', 0.7)">Contrast -</button>
-                  <button type="button" class="filter-btn" onclick="applyFilter('saturation', 1.5)">Saturation +</button>
-                  <button type="button" class="filter-btn" onclick="applyFilter('saturation', 0.5)">Saturation -</button>
-                  <button type="button" class="filter-btn" onclick="applyFilter('blur', 2)">Blur</button>
-                  <button type="button" class="filter-btn" onclick="applyFilter('sharpen', 1)">Sharpen</button>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label>Transform Tools</label>
-                <div class="transform-buttons">
-                  <button type="button" class="transform-btn" onclick="rotateImage(90)">Rotate 90°</button>
-                  <button type="button" class="transform-btn" onclick="rotateImage(-90)">Rotate -90°</button>
-                  <button type="button" class="transform-btn" onclick="flipImage('horizontal')">Flip H</button>
-                  <button type="button" class="transform-btn" onclick="flipImage('vertical')">Flip V</button>
-                  <button type="button" class="transform-btn" onclick="scaleImage(1.1)">Scale +10%</button>
-                  <button type="button" class="transform-btn" onclick="scaleImage(0.9)">Scale -10%</button>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label>Effects</label>
-                <div class="effect-buttons">
-                  <button type="button" class="effect-btn" onclick="applyEffect('grayscale')">Grayscale</button>
-                  <button type="button" class="effect-btn" onclick="applyEffect('sepia')">Sepia</button>
-                  <button type="button" class="effect-btn" onclick="applyEffect('invert')">Invert</button>
-                  <button type="button" class="effect-btn" onclick="applyEffect('vintage')">Vintage</button>
-                  <button type="button" class="effect-btn" onclick="applyEffect('warm')">Warm</button>
-                  <button type="button" class="effect-btn" onclick="applyEffect('cool')">Cool</button>
-                </div>
-              </div>
-
-              <!-- Fabric.js Canvas Container -->
-              <div id="fabricCanvasContainer" style="display: none; margin-top: 15px;">
-                <div style="border: 2px solid var(--primary-color); border-radius: 8px; padding: 10px; background: #f8f9fa;">
-                  <h4 style="margin: 0 0 10px 0; color: var(--primary-color);">Image Editor</h4>
-                  <canvas id="fabricCanvas" width="400" height="300" style="border: 1px solid #ddd; max-width: 100%;"></canvas>
-                  <div style="margin-top: 10px; text-align: center;">
-                    <div style="margin-bottom: 10px;">
-                      <label style="font-size: 12px; margin-right: 10px;">Export Quality:</label>
-                      <select id="fabricQuality" style="font-size: 12px; padding: 2px;">
-                        <option value="1">High Quality (1x)</option>
-                        <option value="2" selected>Ultra Quality (2x)</option>
-                        <option value="3">Maximum Quality (3x)</option>
-                        <option value="original">Original Size (Best)</option>
-                      </select>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-sm" onclick="saveFabricChanges()">Save Changes</button>
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="cancelFabricChanges()">Cancel</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Export Options -->
+                     <!-- Export Options -->
            <div class="control-section">
              <div class="section-header" onclick="toggleSection('exportOptionsSection')">
                <h3>Export Options</h3>
@@ -2855,10 +2281,6 @@
                  <option value="canvas-card">Canvas Card (262x147)</option>
                  <option value="high-res">High Resolution (2400x400)</option>
                  <option value="web-optimized">Web Optimized (800x133)</option>
-                 <option value="auto-width">HTML - Auto Width (Responsive)</option>
-                 <option value="auto-width-large">HTML - Auto Width - Large (Max 1800px)</option>
-                 <option value="auto-width-medium">HTML - Auto Width - Medium (Max 1200px)</option>
-                 <option value="auto-width-small">HTML - Auto Width - Small (Max 800px)</option>
                </select>
              </div>
              
@@ -2869,27 +2291,7 @@
                <button class="btn btn-secondary" onclick="bannerCreator.exportAsWebP()">Export WebP</button>
                <button class="btn btn-secondary" onclick="bannerCreator.exportAsSVG()">Export SVG</button>
                <button class="btn btn-secondary" onclick="bannerCreator.exportAsHTML()">Export HTML</button>
-               <button class="btn btn-secondary" onclick="bannerCreator.showHTMLPreview()">Show HTML Code</button>
                <button class="btn btn-secondary" onclick="bannerCreator.copyToClipboard()">Copy to Clipboard</button>
-             </div>
-             
-             <!-- HTML Preview Modal -->
-             <div id="htmlPreviewModal" class="html-preview-container">
-               <div class="html-preview-content">
-                 <div class="html-preview-header">
-                   <h3>HTML Code for Canvas LMS</h3>
-                   <button class="html-preview-close" onclick="bannerCreator.hideHTMLPreview()">×</button>
-                 </div>
-                 <div class="html-preview-body">
-                   <div class="html-preview-controls">
-                     <button class="btn btn-secondary" onclick="bannerCreator.copyHTMLCode()">Copy Code</button>
-                     <button class="btn btn-secondary" onclick="bannerCreator.downloadHTMLFile()">Download File</button>
-                   </div>
-                   <div class="html-code-container">
-                     <pre id="htmlCodeDisplay" class="html-code"></pre>
-                   </div>
-                 </div>
-               </div>
              </div>
              </div>
            </div>
@@ -2939,7 +2341,7 @@
             logoUpload: document.getElementById('logoUpload'),
             logoType: document.getElementById('logoType'),
             iconEmoji: document.getElementById('iconEmoji'),
-
+            iconColor: document.getElementById('iconColor'),
             logoSize: document.getElementById('logoSize'),
             shapeType: document.getElementById('shapeType'),
             shapeColor: document.getElementById('shapeColor'),
@@ -2998,10 +2400,7 @@
         this.gradientControls3 = document.getElementById('gradientControls3');
         this.gradientControls4 = document.getElementById('gradientControls4');
         this.iconControls = document.getElementById('iconControls');
-
-        
-        // Initialize current icon
-        this.currentIcon = 'graduation-cap';
+        this.iconColorControl = document.getElementById('iconColorControl');
       }
 
              bindEvents() {
@@ -3085,8 +2484,6 @@
           this.inputs.logoSize.addEventListener('input', () => {
             this.updateLogoSize();
           });
-          
-
 
          // File uploads
          this.inputs.bgUpload.addEventListener('change', (e) => this.handleImageUpload(e, 'bgImage'));
@@ -3235,11 +2632,13 @@
        }
 
        initializeIconControls() {
-         // Logo type toggle - now handled by button clicks via setLogoType function
-         // The setLogoType function will call toggleIconControls and updateBanner
-         
-         // Initialize the default state
-         this.toggleIconControls();
+         // Logo type toggle
+         if (this.inputs.logoType) {
+           this.inputs.logoType.addEventListener('change', () => {
+             this.toggleIconControls();
+             this.updateBanner();
+           });
+         }
          
          // Icon emoji input
          if (this.inputs.iconEmoji) {
@@ -3249,7 +2648,11 @@
          }
          
          // Icon color picker
-
+         if (this.inputs.iconColor) {
+           this.inputs.iconColor.addEventListener('input', () => {
+             this.updateBanner();
+           });
+         }
        }
 
        toggleIconControls() {
@@ -3258,208 +2661,14 @@
          if (this.iconControls) {
            this.iconControls.style.display = logoType === 'icon' ? 'block' : 'none';
          }
-
+         if (this.iconColorControl) {
+           this.iconColorControl.style.display = logoType === 'icon' ? 'block' : 'none';
+         }
          
          // Hide/show logo upload based on type
          if (this.inputs.logoUpload) {
            this.inputs.logoUpload.parentElement.style.display = logoType === 'upload' ? 'block' : 'none';
          }
-         
-         // Initialize icon search when icon controls are shown
-         if (logoType === 'icon') {
-           this.initializeIconSearch();
-         }
-       }
-
-       initializeIconSearch() {
-         // Set up icon search functionality
-         const iconSearch = document.getElementById('iconSearch');
-         if (iconSearch) {
-           iconSearch.addEventListener('keypress', (e) => {
-             if (e.key === 'Enter') {
-               this.searchIcons();
-             }
-           });
-         }
-         
-         // Load initial icons
-         console.log('Initializing icon search...');
-         console.log('Icon search element found:', !!iconSearch);
-         this.searchIcons();
-       }
-
-       async searchIcons(query = null) {
-         try {
-           const searchQuery = query || document.getElementById('iconSearch')?.value || 'graduation';
-           const resultsContainer = document.getElementById('iconResults');
-           
-           console.log('Searching for emoji icons with query:', searchQuery);
-           
-           if (!resultsContainer) {
-             console.log('No results container found');
-             return;
-           }
-           
-           resultsContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">Searching icons...</div>';
-           
-           // Comprehensive emoji icon database with live search
-           const emojiIcons = {
-             // Education & Learning
-             'graduation': ['🎓', '🏫', '📖', '📚', '👥', '👤', '✅', '➕', '➖', '❌', '🔍', '⚙️', '✏️', '❤️', '⭐', '⏰', '👔', '🛡️', '👨‍🏫', '👩‍🏫', '🎒', '📝', '📋', '📌', '📍', '🔖', '📎', '📐', '📏', '🧮', '📊', '📈', '📉', '📑', '📄', '📃', '📜', '📁', '📂', '🗂️', '📅', '📆', '🗓️', '📇', '🖊️', '🖋️', '✒️', '🖌️', '🖍️', '🔎', '🔐', '🔒', '🔓', '🔑', '🗝️'],
-             'book': ['📖', '📚', '🔖', '📔', '📄', '📁', '📰', '📰', '📅', '🕐', '⏳', '⏱️', '⏲️', '📝', '📋', '📌', '📍', '📎', '📐', '📏'],
-             'calculator': ['🧮', '📊', '📈', '💯', '➗', '➕', '➖', '✖️', '🟰', '#️⃣', '🔢', '🥧'],
-             'science': ['🧪', '🔬', '⚛️', '🧬', '🦠', '🧫', '🌡️', '💉', '💊', '🩺', '🧠', '🫁', '🫀', '🩸', '🦴', '🦷', '👁️', '👂', '👃', '👄', '👅', '🦿', '🦾', '🦵', '🦶'],
-             'computer': ['💻', '🖥️', '⌨️', '🖱️', '📱', '🖨️', '📷', '📡', '📶', '🔌', '💾'],
-             'art': ['🎨', '🖌️', '✏️', '🖼️', '📷', '🧽', '📏', '🧭', '📐', '📏', '✒️'],
-             'business': ['💼', '📈', '💲', '📊', '👥', '💶', '🏦', '🏢', '🤝', '📄', '✍️', '🖨️', '🔒', '📜', '🎓', '🏆', '🥇', '🎗️'],
-             'health': ['🏥', '💓', '🏥', '🩺', '💊', '❤️', '➕', '➕', '🏥', '💓', '🏥', '🩺', '💊', '❤️', '➕', '➕', '🚑', '♿', '🩼', '🩹', '🌡️', '💉', '💊', '🩺', '💓', '🫁', '🧠', '👁️', '👂', '🦷'],
-             'music': ['🎵', '🎵', '🎹', '🎸', '🎤', '🎵', '🎹', '🎸', '🎤', '🎵', '🎵', '🎵', '🎹', '🎸', '🎤', '🎵', '🥁', '🎻', '🎺', '🎷', '🪗', '🎵', '🥁', '🥁', '🔺', '🎵'],
-             'sports': ['🏀', '⚽', '⚾', '🏈', '🏐', '🏀', '⚽', '⚾', '🏈', '🎾', '🏀', '⚽', '⚾', '🏈', '🏐', '⛳', '🏒', '🏓', '🏸', '🎳', '🏋️', '🏋️', '🏃', '🏊', '🚴', '⛷️', '🏂', '🏄', '🧗'],
-             'halloween': ['👻', '🎃', '🦇', '💀', '🕷️', '🧙‍♀️', '⚰️', '🪦', '👻', '🎃', '🦇', '💀', '🕷️', '🧙‍♀️', '⚰️', '🪦', '🕸️', '🍯', '🧹', '🔮', '✨', '🪄', '✨', '👻', '🧛', '🧟', '👻', '🧟'],
-             'christmas': ['🎄', '⛄', '🎅', '🎁', '⭐', '❄️', '🔔', '🍬', '🎄', '⛄', '🎅', '🎁', '⭐', '❄️', '🔔', '🍬', '🎅', '🦌', '🧝', '👼', '🎀', '🎗️', '🌿', '🌿', '🕯️', '🔥', '🧦'],
-             'holiday': ['🎄', '⛄', '🎅', '🎁', '⭐', '👻', '🎃', '🦇', '🎆', '🎉', '🎈', '🎂', '🕯️', '🎉', '🎆', '🎉', '🎈', '🎂', '🕯️', '🎉', '🏁', '🏁', '🎊', '📯', '🥁', '🥁', '🥁'],
-             'food': ['🍎', '🥐', '🍴', '🍕', '☕', '🫖', '🍺', '🍷', '🧁', '🍔', '🍎', '🥐', '🍴', '🍕', '☕', '🫖', '🍺', '🍷', '🧁', '🍔', '🥕', '🥦', '🌽', '🌶️', '🍅', '🥬', '🧅', '🧄', '🥔', '🍚', '🍞', '🧀', '🥚', '🐟', '🍗', '🥩', '🥓', '🍖'],
-
-             'transport': ['🚗', '✈️', '🚂', '🚌', '🚲', '🚢', '🚁', '🚀', '🚢', '🚇', '🚛', '🚗', '✈️', '🚂', '🚌', '🚲', '🚢', '🚁', '🚀', '🚢', '🚇', '🏍️', '🛵', '🛹', '⛸️', '🛷️', '🚛', '🚙', '🚗', '🚕', '🚑', '🚒', '🚓'],
-             'all': ['🎓', '🏫', '📖', '📚', '🎓', '📚', '🔖', '📔', '📄', '🧮', '📊', '📈', '🧪', '🔬', '⚛️', '🧪', '🧪', '💻', '🖥️', '⌨️', '🖱️', '🖥️', '🎨', '🖌️', '✏️', '🖼️', '📷', '💼', '📈', '💲', '📊', '👥', '🏥', '💓', '🏥', '🩺', '💊', '🎵', '🎵', '🎹', '🎸', '🎤', '🏀', '⚽', '⚾', '🏈', '🏐', '👻', '🎃', '🦇', '💀', '🕷️', '🧙‍♀️', '⚰️', '🪦', '🎄', '⛄', '🎅', '🎁', '⭐', '❄️', '🔔', '🍬', '🍎', '🌳', '🚗', '✈️', '🎆', '🎉', '❤️', '🏠', '👤', '⚙️', '❓', 'ℹ️', '⚠️', '✅', '❌', '➕', '➖', '⬅️', '➡️', '⬆️', '⬇️', '☰', '⋯', '⋮', '👁️', '🙈', '🔒', '🔓', '🔑', '🛡️', '📱', '📱', '🏦', '🎨', '🎨', '🖌️', '🎨', '🔬', '🧬', '⚛️', '🦠', '🧫', '🧬', '🔬', '🧪', '🧪', '🧪', '🌡️', '💉', '💊', '🩺', '🧠', '🫁', '🫀', '🩸', '🦴', '🦷', '👁️', '👂', '👃', '👄', '👅', '🦿', '🦾', '🦵', '🦶', '🦷', '🦴', '🩸', '🫀', '🫁', '🧠', '🫁', '🫀', '🩸', '🦴', '🦷', '👁️', '👂', '👃', '👄', '👅', '🦿', '🦾', '🦵', '🦶'],
-             'default': ['🎓', '📖', '🧮', '🧪', '💻', '🎨', '💼', '🏥', '🎵', '⭐', '🍎', '🌳', '🚗', '👻', '🎄', '❤️', '🏠', '👤', '⚙️', '❓']
-           };
-           
-           // Find matching icons based on search query
-           let matchingIcons = [];
-           const searchLower = searchQuery.toLowerCase();
-           
-           // Search through all icons for direct matches (search by category)
-           const directMatches = [];
-           for (const [category, icons] of Object.entries(emojiIcons)) {
-             if (category.includes(searchLower) || searchLower.includes(category)) {
-               directMatches.push(...icons);
-             }
-           }
-           
-           if (directMatches.length > 0) {
-             matchingIcons = directMatches;
-           } else {
-             // If no category matches, try to find relevant icons based on search terms
-             if (searchLower.includes('halloween') || searchLower.includes('spooky') || searchLower.includes('ghost')) {
-               matchingIcons = emojiIcons.halloween || [];
-             } else if (searchLower.includes('christmas') || searchLower.includes('xmas') || searchLower.includes('santa')) {
-               matchingIcons = emojiIcons.christmas || [];
-             } else if (searchLower.includes('holiday') || searchLower.includes('celebration')) {
-               matchingIcons = emojiIcons.holiday || [];
-             } else {
-               // Show a smaller selection of relevant icons instead of all icons
-               matchingIcons = emojiIcons.default;
-             }
-           }
-           
-           // If still no matches, use default icons
-           if (matchingIcons.length === 0) {
-             matchingIcons = emojiIcons.default;
-           }
-           
-           // Limit to 20 results
-           matchingIcons = matchingIcons.slice(0, 20);
-           
-           if (matchingIcons.length > 0) {
-             this.displayIconResults(matchingIcons);
-           } else {
-             resultsContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">No icons found. Try a different search term.</div>';
-           }
-         } catch (error) {
-           console.error('Error searching icons:', error);
-           const resultsContainer = document.getElementById('iconResults');
-           if (resultsContainer) {
-             resultsContainer.innerHTML = '<div style="text-align: center; padding: 20px; color: #ff0000;">Error loading icons. Please try again.</div>';
-           }
-         }
-       }
-
-       displayIconResults(icons) {
-         const resultsContainer = document.getElementById('iconResults');
-         if (!resultsContainer) return;
-         
-         console.log('Displaying emoji icons:', icons);
-         
-         resultsContainer.innerHTML = '';
-         
-         icons.forEach(emoji => {
-           const iconElement = document.createElement('div');
-           iconElement.className = 'icon-result';
-           iconElement.onclick = () => this.selectIcon(emoji);
-           
-           iconElement.innerHTML = `
-             <span style="font-size: 32px; display: block; text-align: center; margin-bottom: 5px;">${emoji}</span>
-             <span class="icon-name">${emoji}</span>
-           `;
-           
-           resultsContainer.appendChild(iconElement);
-           
-           // Debug: Check if the icon element was created
-           console.log(`Created emoji element for: ${emoji}`);
-         });
-         
-         // Debug: Check if any icons were added
-         console.log('Total emojis added:', resultsContainer.children.length);
-       }
-
-       selectIcon(iconName) {
-         console.log('selectIcon called with:', iconName);
-         // Update the selected icon
-         this.currentIcon = iconName;
-         
-         // Update the display
-         const selectedIconName = document.getElementById('selectedIconName');
-         const selectedIconPreview = document.getElementById('selectedIconPreview');
-         
-         if (selectedIconName) {
-           selectedIconName.textContent = iconName; // Lucide icons don't have prefixes
-         }
-         
-         if (selectedIconPreview) {
-           selectedIconPreview.innerHTML = `<span style="font-size: 32px;">${iconName}</span>`;
-         }
-         
-         // Force update the banner to show the new icon
-         console.log('selectIcon: About to call updateBanner with currentIcon:', this.currentIcon);
-         setTimeout(() => {
-           console.log('selectIcon: Delayed updateBanner call with currentIcon:', this.currentIcon);
-           this.updateBanner();
-         }, 100);
-         
-         // Update the banner immediately
-         console.log('selectIcon: Immediate updateBanner call with currentIcon:', this.currentIcon);
-         this.updateBanner();
-         
-         // Highlight selected icon in results
-         const iconResults = document.querySelectorAll('.icon-result');
-         iconResults.forEach(result => {
-           result.classList.remove('selected');
-           if (result.querySelector('.icon-name').textContent === iconName) {
-             result.classList.add('selected');
-           }
-         });
-       }
-
-       searchIconsByCategory(category) {
-         const categoryQueries = {
-           education: 'graduation school university college',
-           science: 'science microscope flask atom',
-           technology: 'computer laptop code programming',
-           business: 'business briefcase chart money',
-           arts: 'art paint brush palette',
-           health: 'medical health hospital doctor',
-           halloween: 'halloween ghost pumpkin bat',
-           christmas: 'christmas tree snowman gift',
-           food: 'food apple pizza coffee',
-           nature: 'tree flower leaf mountain',
-           transport: 'car airplane train bus',
-           all: 'star' // Use a common icon to get variety
-         };
-         
-         const query = categoryQueries[category] || category;
-         document.getElementById('iconSearch').value = query;
-         this.searchIcons(query);
        }
        
        showNewFeaturesPopupOnLoad() {
@@ -3474,529 +2683,6 @@
              localStorage.setItem('bannerCreatorNewFeaturesSeen', 'true');
            }, 1000);
          }
-       }
-       
-
-
-       showHTMLPreview() {
-         try {
-           this.showLoadingState(true);
-           
-           // Generate the HTML code
-           const htmlCode = this.generateHTMLCode();
-           
-           // Display the code in the modal
-           const codeDisplay = document.getElementById('htmlCodeDisplay');
-           if (codeDisplay) {
-             codeDisplay.textContent = htmlCode;
-           }
-           
-           // Show the container
-           const container = document.getElementById('htmlPreviewModal');
-           if (container) {
-             container.style.display = 'block';
-           }
-           
-           this.showMessage('✅ HTML code generated successfully!', 'success');
-         } catch (error) {
-           console.error('Error generating HTML preview:', error);
-           this.showMessage('❌ Error generating HTML code', 'error');
-         } finally {
-           this.showLoadingState(false);
-         }
-       }
-
-       hideHTMLPreview() {
-         const container = document.getElementById('htmlPreviewModal');
-         if (container) {
-           container.style.display = 'none';
-         }
-       }
-
-       copyHTMLCode() {
-         const codeDisplay = document.getElementById('htmlCodeDisplay');
-         if (codeDisplay) {
-           const htmlCode = codeDisplay.textContent;
-           navigator.clipboard.writeText(htmlCode).then(() => {
-             this.showMessage('✅ HTML code copied to clipboard!', 'success');
-           }).catch(() => {
-             // Fallback for older browsers
-             const textArea = document.createElement('textarea');
-             textArea.value = htmlCode;
-             document.body.appendChild(textArea);
-             textArea.select();
-             document.execCommand('copy');
-             document.body.removeChild(textArea);
-             this.showMessage('✅ HTML code copied to clipboard!', 'success');
-           });
-         }
-       }
-
-       downloadHTMLFile() {
-         const codeDisplay = document.getElementById('htmlCodeDisplay');
-         if (codeDisplay) {
-           const htmlCode = codeDisplay.textContent;
-           const fileName = this.inputs.exportFileName && this.inputs.exportFileName.value ? this.inputs.exportFileName.value : 'canvas-banner';
-           
-           const link = document.createElement('a');
-           link.download = `${fileName}.html`;
-           link.href = 'data:text/html;charset=utf-8,' + encodeURIComponent(htmlCode);
-           link.click();
-           
-           this.showMessage('✅ HTML file downloaded successfully!', 'success');
-         }
-       }
-
-       getIconEmoji(iconName) {
-         // Map icon names to emojis for Canvas compatibility
-         const iconToEmoji = {
-           'graduation-cap': '🎓',
-           'school': '🏫',
-           'book-open': '📖',
-           'library': '📚',
-           'university': '🎓',
-           'calculator': '🧮',
-           'flask': '🧪',
-           'microscope': '🔬',
-           'atom': '⚛️',
-           'dna': '🧬',
-           'molecule': '⚛️',
-           'virus': '🦠',
-           'bacteria': '🦠',
-           'cell': '🔬',
-           'test-tube': '🧪',
-           'beaker': '🧪',
-           'laptop': '💻',
-           'desktop': '🖥️',
-           'keyboard': '⌨️',
-           'mouse': '🖱️',
-           'server': '🖥️',
-           'palette': '🎨',
-           'brush': '🖌️',
-           'pencil': '✏️',
-           'image': '🖼️',
-           'camera': '📷',
-           'briefcase': '💼',
-           'chart-line': '📈',
-           'dollar-sign': '💲',
-           'presentation': '📊',
-           'users': '👥',
-           'medical-bag': '🏥',
-           'heartbeat': '💓',
-           'hospital': '🏥',
-           'stethoscope': '🩺',
-           'pill': '💊',
-           'heart': '❤️',
-           'music': '🎵',
-           'music-note': '🎵',
-           'piano': '🎹',
-           'guitar': '🎸',
-           'microphone': '🎤',
-           'basketball-ball': '🏀',
-           'futbol': '⚽',
-           'baseball-ball': '⚾',
-           'football-ball': '🏈',
-           'volleyball-ball': '🏐',
-           'ghost': '👻',
-           'pumpkin': '🎃',
-           'bat': '🦇',
-           'skull': '💀',
-           'spider': '🕷️',
-           'witch-hat': '🧙‍♀️',
-           'coffin': '⚰️',
-           'gravestone': '🪦',
-           'christmas-tree': '🎄',
-           'snowman': '⛄',
-           'santa-hat': '🎅',
-           'gift': '🎁',
-           'star': '⭐',
-           'snowflake': '❄️',
-           'bell': '🔔',
-           'candy-cane': '🍬',
-           'apple-alt': '🍎',
-           'tree': '🌳',
-           'flower': '🌸',
-           'leaf': '🍃',
-           'grass': '🌱',
-           'mountain': '⛰️',
-           'water': '💧',
-           'fire': '🔥',
-           'sun': '☀️',
-           'moon': '🌙',
-           'cloud': '☁️',
-           'car': '🚗',
-           'plane': '✈️',
-           'train': '🚂',
-           'bus': '🚌',
-           'bike': '🚲',
-           'boat': '🚢',
-           'helicopter': '🚁',
-           'rocket': '🚀',
-           'ship': '🚢',
-           'subway': '🚇',
-           'truck': '🚛',
-           'home': '🏠',
-           'user': '👤',
-           'cog': '⚙️',
-           'question-circle': '❓',
-           'info-circle': 'ℹ️',
-           'exclamation-triangle': '⚠️',
-           'check': '✅',
-           'times': '❌',
-           'plus': '➕',
-           'minus': '➖',
-           'arrow-left': '⬅️',
-           'arrow-right': '➡️',
-           'arrow-up': '⬆️',
-           'arrow-down': '⬇️',
-           'bars': '☰',
-           'ellipsis-h': '⋯',
-           'ellipsis-v': '⋮',
-           'eye': '👁️',
-           'eye-slash': '🙈',
-           'lock': '🔒',
-           'unlock': '🔓',
-           'key': '🔑',
-           'shield': '🛡️',
-           'mobile': '📱',
-           'tablet': '📱',
-           'bank': '🏦',
-           'drawing': '🎨',
-           'eyedropper': '🎨',
-           'paint-brush': '🖌️',
-           'color-picker': '🎨',
-           'thermometer': '🌡️',
-           'syringe': '💉',
-           'pills': '💊',
-           'flask-vial': '🧪',
-           'test-tube-2': '🧪',
-           'beaker-2': '🧪',
-           'flask-2': '🧪',
-           'microscope-2': '🔬',
-           'atom-2': '⚛️',
-           'dna-2': '🧬',
-           'molecule-2': '⚛️',
-           // Additional comprehensive mappings
-           'user-graduate': '🎓',
-           'user-check': '✅',
-           'user-plus': '➕',
-           'user-minus': '➖',
-           'user-times': '❌',
-           'user-search': '🔍',
-           'user-cog': '⚙️',
-           'user-edit': '✏️',
-           'user-heart': '❤️',
-           'user-star': '⭐',
-           'user-clock': '⏰',
-           'user-tie': '👔',
-           'user-friends': '👥',
-           'user-shield': '🛡️',
-           'chalkboard-teacher': '👨‍🏫',
-           'bookmark-plus': '➕',
-           'bookmark-minus': '➖',
-           'bookmark-times': '❌',
-           'bookmark-check': '✅',
-           'bookmark-star': '⭐',
-           'bookmark-music': '🎵',
-           'bookmark-text': '📝',
-           'newspaper': '📰',
-           'magazine': '📰',
-           'journal': '📔',
-           'diary': '📖',
-           'calendar': '📅',
-           'clock': '🕐',
-           'hourglass': '⏳',
-           'stopwatch': '⏱️',
-           'timer': '⏲️',
-           'abacus': '🧮',
-           'chart-area': '📊',
-           'chart-scatter': '📈',
-           'medical-cross': '➕',
-           'medical-bag-2': '🏥',
-           'heartbeat-2': '💓',
-           'hospital-2': '🏥',
-           'stethoscope-2': '🩺',
-           'pill-2': '💊',
-           'heart-2': '❤️',
-           'cross-2': '➕',
-           'medical-cross-2': '➕',
-           'ambulance': '🚑',
-           'wheelchair': '♿',
-           'crutch': '🩼',
-           'bandage': '🩹',
-           'lungs': '🫁',
-           'brain': '🧠',
-           'eye': '👁️',
-           'ear': '👂',
-           'tooth': '🦷',
-           'music-box': '🎵',
-           'piano-2': '🎹',
-           'guitar-2': '🎸',
-           'microphone-2': '🎤',
-           'music-circle': '🎵',
-           'music-2': '🎵',
-           'music-note-2': '🎵',
-           'piano-3': '🎹',
-           'guitar-3': '🎸',
-           'microphone-3': '🎤',
-           'music-box-2': '🎵',
-           'drum': '🥁',
-           'violin': '🎻',
-           'trumpet': '🎺',
-           'saxophone': '🎷',
-           'accordion': '🪗',
-           'harmonica': '🎵',
-           'tambourine': '🥁',
-           'maracas': '🥁',
-           'triangle': '🔺',
-           'xylophone': '🎵',
-           'basketball-hoop': '🏀',
-           'futbol-field': '⚽',
-           'baseball-diamond': '⚾',
-           'football-helmet': '🏈',
-           'tennis': '🎾',
-           'golf-ball': '⛳',
-           'hockey-puck': '🏒',
-           'table-tennis': '🏓',
-           'badminton': '🏸',
-           'bowling-ball': '🎳',
-           'dumbbell': '🏋️',
-           'weight': '🏋️',
-           'running': '🏃',
-           'swimming': '🏊',
-           'cycling': '🚴',
-           'skiing': '⛷️',
-           'snowboarding': '🏂',
-           'surfing': '🏄',
-           'climbing': '🧗',
-           'spider-web': '🕸️',
-           'cauldron': '🍯',
-           'broom': '🧹',
-           'crystal-ball': '🔮',
-           'magic': '✨',
-           'wand': '🪄',
-           'spell': '✨',
-           'curse': '👻',
-           'vampire': '🧛',
-           'zombie': '🧟',
-           'mummy': '👻',
-           'frankenstein': '🧟',
-           'santa': '🎅',
-           'reindeer': '🦌',
-           'elf': '🧝',
-           'angel': '👼',
-           'ornament': '🎀',
-           'wreath': '🎗️',
-           'mistletoe': '🌿',
-           'holly': '🌿',
-           'fireplace': '🔥',
-           'stocking': '🧦',
-           'fireworks-2': '🎆',
-           'party-popper-2': '🎉',
-           'balloon-2': '🎈',
-           'cake-2': '🎂',
-           'candle-2': '🕯️',
-           'celebration-2': '🎉',
-           'flag': '🏁',
-           'banner': '🏁',
-           'confetti': '🎊',
-           'horn': '📯',
-           'drum-2': '🥁',
-           'tambourine-2': '🥁',
-           'maracas-2': '🥁',
-           'carrot': '🥕',
-           'broccoli': '🥦',
-           'corn': '🌽',
-           'pepper': '🌶️',
-           'tomato': '🍅',
-           'lettuce': '🥬',
-           'onion': '🧅',
-           'garlic': '🧄',
-           'potato': '🥔',
-           'rice': '🍚',
-           'bread': '🍞',
-           'cheese': '🧀',
-           'egg': '🥚',
-           'fish': '🐟',
-           'chicken': '🍗',
-           'beef': '🥩',
-           'pork': '🥓',
-           'lamb': '🍖',
-           'seedling': '🌱',
-           'sprout': '🌱',
-           'plant': '🌱',
-           'cactus': '🌵',
-           'palm-tree': '🌴',
-           'oak-tree': '🌳',
-           'maple-tree': '🌳',
-           'pine-tree': '🌲',
-           'rose': '🌹',
-           'tulip': '🌷',
-           'daisy': '🌼',
-           'lily': '🌺',
-           'orchid': '🌺',
-           'sunflower': '🌻',
-           'dandelion': '🌼',
-           'motorcycle': '🏍️',
-           'scooter': '🛵',
-           'skateboard': '🛹',
-           'roller-skate': '⛸️',
-           'snowmobile': '🛷️',
-           'tank': '🚛',
-           'jeep': '🚙',
-           'limousine': '🚗',
-           'taxi': '🚕',
-           'fire-truck': '🚒',
-           'police-car': '🚓',
-           'computer': '💻',
-           'monitor': '🖥️',
-           'printer': '🖨️',
-           'scanner': '📷',
-           'router': '📡',
-           'wifi': '📶',
-           'bluetooth': '📶',
-           'usb': '🔌',
-           'sd-card': '💾',
-           'hard-drive': '💾',
-           'memory': '💾',
-           'processor': '💻',
-           'palette-swatch': '🎨',
-           'brush-2': '🖌️',
-           'pencil-box': '✏️',
-           'image-multiple': '🖼️',
-           'camera-iris': '📷',
-           'camera-enhance': '📷',
-           'paint-roller': '🎨',
-           'spray-can': '🎨',
-           'fill-drip': '🎨',
-           'eraser': '🧽',
-           'ruler': '📏',
-           'compass': '🧭',
-           'protractor': '📐',
-           'pencil-ruler': '📏',
-           'pen': '✒️',
-           'pen-fancy': '✒️',
-           'pen-nib': '✒️',
-           'handshake': '🤝',
-           'contract': '📄',
-           'signature': '✍️',
-           'stamp': '🖨️',
-           'seal': '🔒',
-           'certificate': '📜',
-           'diploma': '🎓',
-           'award': '🏆',
-           'trophy': '🏆',
-           'medal': '🥇',
-           'ribbon': '🎗️',
-           'chart-bar': '📊',
-           'chart-pie': '🥧',
-           'euro': '💶',
-           'bank': '🏦',
-           'building': '🏢',
-           'briefcase-2': '💼',
-           'chart-line-2': '📈',
-           'dollar-sign-2': '💲',
-           'presentation-2': '📊',
-           'users-2': '👥',
-           'chart-bar-2': '📊',
-           'chart-pie-2': '🥧',
-           'euro-2': '💶',
-           'bank-2': '🏦',
-           'building-2': '🏢',
-           'apple-alt-2': '🍎',
-           'croissant-2': '🥐',
-           'utensils-2': '🍴',
-           'pizza-slice-2': '🍕',
-           'coffee-2': '☕',
-           'tea-2': '🫖',
-           'beer-2': '🍺',
-           'wine-2': '🍷',
-           'cupcake-2': '🧁',
-           'hamburger-2': '🍔',
-           'tree-2': '🌳',
-           'flower-2': '🌸',
-           'leaf-2': '🍃',
-           'grass-2': '🌱',
-           'mountain-2': '⛰️',
-           'water-2': '💧',
-           'fire-2': '🔥',
-           'sun-2': '☀️',
-           'moon-2': '🌙',
-           'cloud-2': '☁️',
-           'car-2': '🚗',
-           'plane-2': '✈️',
-           'train-2': '🚂',
-           'bus-2': '🚌',
-           'bike-2': '🚲',
-           'boat-2': '🚢',
-           'helicopter-2': '🚁',
-           'rocket-2': '🚀',
-           'ship-2': '🚢',
-           'subway-2': '🚇',
-           'truck-2': '🚛'
-         };
-         
-         return iconToEmoji[iconName] || '🎓'; // Default to graduation cap if not found
-       }
-
-       generateHTMLCode() {
-         const exportDims = this.getExportDimensions();
-         const title = this.inputs.title && this.inputs.title.value ? this.inputs.title.value : '';
-         const subtitle2 = this.inputs.subtitle2 && this.inputs.subtitle2.value ? this.inputs.subtitle2.value : '';
-         const subtitle3 = this.inputs.subtitle3 && this.inputs.subtitle3.value ? this.inputs.subtitle3.value : '';
-         
-         // Handle auto-width scaling
-         const exportSize = this.inputs.exportSize && this.inputs.exportSize.value ? this.inputs.exportSize.value : 'canvas-optimal';
-         const isAutoWidth = exportSize === 'auto-width';
-         const isAutoWidthLarge = exportSize === 'auto-width-large';
-         const isAutoWidthMedium = exportSize === 'auto-width-medium';
-         const isAutoWidthSmall = exportSize === 'auto-width-small';
-         const isAnyAutoWidth = isAutoWidth || isAutoWidthLarge || isAutoWidthMedium || isAutoWidthSmall;
-         const previewWidth = this.inputs.bannerWidth && this.inputs.bannerWidth.value ? parseInt(this.inputs.bannerWidth.value) : 1200;
-         const previewHeight = this.inputs.bannerHeight && this.inputs.bannerHeight.value ? parseInt(this.inputs.bannerHeight.value) : 200;
-         
-         let scaleFactor = 1;
-         if (!isAnyAutoWidth) {
-           scaleFactor = Math.min(exportDims.width / previewWidth, exportDims.height / previewHeight);
-         }
-         
-         const baseTitleSize = this.inputs.titleSize && this.inputs.titleSize.value ? parseInt(this.inputs.titleSize.value) : 48;
-         const baseSubtitleSize = this.inputs.subtitleSize && this.inputs.subtitleSize.value ? parseInt(this.inputs.subtitleSize.value) : 24;
-         const baseLogoSize = this.inputs.logoSize && this.inputs.logoSize.value ? parseInt(this.inputs.logoSize.value) : 120;
-         
-         const titleSize = isAnyAutoWidth ? baseTitleSize : Math.round(baseTitleSize * scaleFactor);
-         const subtitleSize = isAnyAutoWidth ? baseSubtitleSize : Math.round(baseSubtitleSize * scaleFactor);
-         const logoSize = isAnyAutoWidth ? baseLogoSize : Math.round(baseLogoSize * scaleFactor);
-         
-         const font = this.inputs.fontChoice && this.inputs.fontChoice.value ? this.inputs.fontChoice.value : 'Montserrat, Arial, sans-serif';
-         const titleColor = this.inputs.titleColor && this.inputs.titleColor.value ? this.inputs.titleColor.value : '#ffffff';
-         const subtitleColor = this.inputs.subtitleColor && this.inputs.subtitleColor.value ? this.inputs.subtitleColor.value : '#ffffff';
-         const subtitle3Color = this.inputs.subtitle3Color && this.inputs.subtitle3Color.value ? this.inputs.subtitle3Color.value : '#ffffff';
-         const textAlign = this.inputs.textAlign && this.inputs.textAlign.value ? this.inputs.textAlign.value : 'left';
-         const bgColor = this.getBackgroundColor();
-         const hasLogo = this.preview.logoImage && this.preview.logoImage.style.display !== 'none' && this.preview.logoImage.src;
-         const logoType = this.inputs.logoType ? this.inputs.logoType.value : 'upload';
-         const hasIcon = logoType === 'icon';
-         
-         return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Banner</title>
-</head>
-<body style="margin: 0; padding: 0;">
-    <div style="${isAnyAutoWidth ? `width: 100%; ${isAutoWidthLarge ? 'max-width: 1800px;' : ''}${isAutoWidthMedium ? 'max-width: 1200px;' : ''}${isAutoWidthSmall ? 'max-width: 800px;' : ''} display: flex; align-items: center; justify-content: space-between;` : `width: ${exportDims.width}px;`} height: ${isAnyAutoWidth ? previewHeight : exportDims.height}px; ${bgColor.includes('linear-gradient') ? `background: ${bgColor};` : `background-color: ${bgColor};`} padding: 20px; position: relative; overflow: hidden; margin: 0 auto;">
-        <div style="${isAnyAutoWidth ? 'flex: 1;' : `width: ${hasLogo || hasIcon ? exportDims.width - logoSize - 60 : exportDims.width - 40}px;`} text-align: ${textAlign};">
-            <h1 style="margin: 0; font-family: ${font}; font-size: ${titleSize}px; font-weight: 700; color: ${titleColor}; line-height: 1.2;">${title}</h1>
-            ${subtitle2 ? `<p style="margin: 0; font-family: ${font}; font-size: ${subtitleSize}px; font-weight: 300; color: ${subtitleColor}; line-height: 1.2;">${subtitle2}</p>` : ''}
-            ${subtitle3 ? `<p style="margin: 0; font-family: ${font}; font-size: ${subtitleSize}px; font-weight: 300; color: ${subtitle3Color}; line-height: 1.2;">${subtitle3}</p>` : ''}
-        </div>
-        ${hasLogo ? `<img src="logo.png" alt="Logo" style="${isAnyAutoWidth ? 'flex-shrink: 0; width: ' + logoSize + 'px; height: auto;' : 'position: absolute; right: 20px; top: 20px; width: ' + logoSize + 'px; height: auto;'}">` : ''}
-        ${hasIcon ? `<div style="${isAnyAutoWidth ? 'flex-shrink: 0; font-size: ' + logoSize + 'px;' : 'position: absolute; right: 20px; top: 20px; font-size: ' + logoSize + 'px;'} line-height: 1;">${this.currentIcon || '🎓'}</div>` : ''}
-    </div>
-</body>
-</html>`;
        }
        
        updateOffsetControlsFromDrag(dragX, dragY) {
@@ -4549,42 +3235,17 @@
           const logoType = this.inputs.logoType ? this.inputs.logoType.value : 'upload';
           const hasLogoImage = this.preview.logoImage && this.preview.logoImage.style.display !== 'none' && this.preview.logoImage.src;
           
-          console.log('updateBanner: logoType =', logoType);
-          console.log('updateBanner: hasLogoImage =', hasLogoImage);
-          
           if (logoType === 'icon') {
             // Show icon, hide logo image
             this.preview.logoImage.style.display = 'none';
             this.preview.logoIcon.style.display = 'block';
             
-            const iconName = this.currentIcon || 'graduation-cap';
+            // Set icon content and color
+            const iconEmoji = this.inputs.iconEmoji ? this.inputs.iconEmoji.value : '🎓';
             const iconColor = this.inputs.iconColor ? this.inputs.iconColor.value : '#ffffff';
             
-            console.log('updateBanner: currentIcon =', this.currentIcon);
-            console.log('updateBanner: iconName =', iconName);
-
-            
-            // Use emoji directly
-            const selectedIcon = this.currentIcon || '🎓';
-            console.log('updateBanner: currentIcon =', this.currentIcon);
-            console.log('updateBanner: selectedIcon =', selectedIcon);
-            
-            let iconHTML = `<span style="font-size: inherit; display: inline-block; text-align: center;">${selectedIcon}</span>`;
-            console.log('updateBanner: Using emoji:', selectedIcon);
-            
-            console.log('updateBanner: Setting logoIcon.innerHTML to:', iconHTML);
-            this.preview.logoIcon.innerHTML = iconHTML;
-
-            this.preview.logoIcon.className = 'logo-icon';
-            
-            // Debug: Check what was actually set
-            console.log('updateBanner: logoIcon.innerHTML after setting:', this.preview.logoIcon.innerHTML);
-            console.log('updateBanner: logoIcon.style.color:', this.preview.logoIcon.style.color);
-            
-            // Center the icon vertically
-            this.preview.logoIcon.style.display = 'flex';
-            this.preview.logoIcon.style.alignItems = 'center';
-            this.preview.logoIcon.style.justifyContent = 'center';
+            this.preview.logoIcon.textContent = iconEmoji;
+            this.preview.logoIcon.style.color = iconColor;
           } else {
             // Show logo image, hide icon
             this.preview.logoIcon.style.display = 'none';
@@ -5116,11 +3777,8 @@
         }
         
         drawLogoAndDownload(ctx, canvas, originalWidth, originalHeight) {
-          // Check for logo type
-          const logoType = this.inputs.logoType ? this.inputs.logoType.value : 'upload';
+          // Add logo if present
           const hasLogo = this.preview.logoImage && this.preview.logoImage.style.display !== 'none' && this.preview.logoImage.src;
-          const hasIcon = logoType === 'icon' && this.currentIcon;
-          
           if (hasLogo) {
             const logoImg = new Image();
             logoImg.crossOrigin = 'anonymous';
@@ -5182,65 +3840,17 @@
             };
             
             logoImg.src = this.preview.logoImage.src;
-          } else if (hasIcon) {
-            // Handle icon download using Lucide icons
-            console.log('Downloading with icon:', this.currentIcon);
-            
-            const iconName = this.currentIcon || 'graduation-cap';
-            const iconColor = this.inputs.iconColor ? this.inputs.iconColor.value : '#ffffff';
-            const logoSize = this.inputs.logoSize && this.inputs.logoSize.value ? parseInt(this.inputs.logoSize.value) : 120;
-            
-            // Use the existing logoIcon element that's already rendered with Lucide
-            const logoIconElement = this.preview.logoIcon;
-            if (logoIconElement && logoIconElement.style.display !== 'none') {
-              // Use html2canvas to capture the existing icon element
-              html2canvas(logoIconElement, {
-                backgroundColor: 'transparent',
-                scale: 2,
-                width: logoSize,
-                height: logoSize,
-                useCORS: true,
-                allowTaint: true
-              }).then(iconCanvas => {
-                // Draw the icon on the main canvas
-                const logoX = originalWidth - logoSize - 40;
-                const logoY = (originalHeight - logoSize) / 2;
-                
-                ctx.drawImage(iconCanvas, logoX, logoY, logoSize, logoSize);
-                
-                // Download
-                const link = document.createElement('a');
-                const fileName = this.inputs.exportFileName && this.inputs.exportFileName.value ? this.inputs.exportFileName.value : 'canvas-banner';
-                link.download = `${fileName}.png`;
-                link.href = canvas.toDataURL('image/png', 1.0);
-                link.click();
-                
-                this.showMessage('✅ Banner downloaded successfully with icon!', 'success');
-                this.showLoadingState(false);
-              }).catch(error => {
-                console.error('Error rendering icon:', error);
-                // Fallback: download without icon
-                this.downloadWithoutLogo(canvas);
-              });
-            } else {
-              console.error('Logo icon element not found or not visible');
-              this.downloadWithoutLogo(canvas);
-            }
           } else {
             // Download without logo
-            this.downloadWithoutLogo(canvas);
+            const link = document.createElement('a');
+            const fileName = this.inputs.exportFileName && this.inputs.exportFileName.value ? this.inputs.exportFileName.value : 'canvas-banner';
+            link.download = `${fileName}.png`;
+            link.href = canvas.toDataURL('image/png', 1.0);
+            link.click();
+            
+            this.showMessage('✅ Banner downloaded successfully!', 'success');
+            this.showLoadingState(false);
           }
-        }
-        
-        downloadWithoutLogo(canvas) {
-          const link = document.createElement('a');
-          const fileName = this.inputs.exportFileName && this.inputs.exportFileName.value ? this.inputs.exportFileName.value : 'canvas-banner';
-          link.download = `${fileName}.png`;
-          link.href = canvas.toDataURL('image/png', 1.0);
-          link.click();
-          
-          this.showMessage('✅ Banner downloaded successfully!', 'success');
-          this.showLoadingState(false);
         }
         
         wrapText(ctx, text, maxWidth) {
@@ -5610,14 +4220,6 @@
              return { width: 800, height: 133 };
            case 'canvas-card':
              return { width: 262, height: 147 };
-           case 'auto-width':
-             return { width: 'auto', height: currentHeight };
-           case 'auto-width-large':
-             return { width: 'auto-large', height: currentHeight };
-           case 'auto-width-medium':
-             return { width: 'auto-medium', height: currentHeight };
-           case 'auto-width-small':
-             return { width: 'auto-small', height: currentHeight };
            default:
              return { width: currentWidth, height: currentHeight };
          }
@@ -6307,11 +4909,8 @@
          'dimensionsSection',
          'colorsSection',
          'imagesSection',
-         'shapeSection',
          'exportOptionsSection'
        ];
-       
-       // Fabric.js section is completely hidden (display: none)
        
        sections.forEach(sectionId => {
          const section = document.getElementById(sectionId);
@@ -6319,12 +4918,11 @@
          const controlSection = section?.closest('.control-section');
          
          if (section && toggle) {
-           // Keep sections open by default (remove collapsed class)
-           section.classList.remove('collapsed');
-           toggle.classList.remove('collapsed');
-           toggle.textContent = '▼';
+           section.classList.add('collapsed');
+           toggle.classList.add('collapsed');
+           toggle.textContent = '▶';
            if (controlSection) {
-             controlSection.classList.remove('collapsed');
+             controlSection.classList.add('collapsed');
            }
          }
        });
@@ -6370,17 +4968,6 @@
      }
      
 
-
-    // Global test function for icon display
-    window.testIconDisplay = function() {
-      if (window.bannerCreator) {
-        console.log('Testing icon display...');
-        const testIcons = ['graduation-cap', 'star', 'heart', 'home', 'user'];
-        window.bannerCreator.displayIconResults(testIcons);
-      } else {
-        console.error('BannerCreator not found');
-      }
-    };
 
     // Template functions
     function applyTemplate(templateType) {
@@ -6803,653 +5390,6 @@
           testImg.src = bannerCreator.preview.logoImage.src;
         }
       };
-
-      // Global functions for icon search (called from HTML)
-      window.searchIcons = function() {
-        if (bannerCreator) {
-          bannerCreator.searchIcons();
-        }
-      };
-
-      window.searchIconsByCategory = function(category) {
-        if (bannerCreator) {
-          bannerCreator.searchIconsByCategory(category);
-        }
-      };
-
-      window.selectIcon = function(iconName) {
-        if (bannerCreator) {
-          bannerCreator.selectIcon(iconName);
-        }
-      };
-
-      // Test function for debugging
-      window.testIconSearch = function() {
-        console.log('Testing icon search...');
-        if (bannerCreator) {
-          bannerCreator.searchIcons('graduation');
-        } else {
-          console.log('BannerCreator not available');
-        }
-      };
-
-
-
-
-
-      // Test function for help panel debugging
-      window.testHelpPanel = function() {
-        console.log('Testing help panel...');
-        console.log('toggleHelpPanel function:', typeof toggleHelpPanel);
-        console.log('helpPanel element:', document.getElementById('helpPanel'));
-        console.log('helpToggle button:', document.querySelector('.help-toggle'));
-        
-        // Try to call the function directly
-        if (typeof toggleHelpPanel === 'function') {
-          toggleHelpPanel();
-        } else {
-          console.error('toggleHelpPanel is not a function!');
-        }
-      };
-
-      // Test function for Fabric.js debugging
-      window.testFabric = function() {
-        console.log('=== Testing Fabric.js ===');
-        console.log('Fabric.js available:', typeof fabric !== 'undefined');
-        if (typeof fabric !== 'undefined') {
-          console.log('Fabric.js version:', fabric.version);
-          console.log('Fabric Canvas available:', typeof fabric.Canvas !== 'undefined');
-          console.log('Fabric Image available:', typeof fabric.Image !== 'undefined');
-          console.log('Fabric filters available:', typeof fabric.Image.filters !== 'undefined');
-        }
-        
-        // Test creating a simple canvas
-        try {
-          const testCanvas = document.createElement('canvas');
-          testCanvas.width = 100;
-          testCanvas.height = 100;
-          document.body.appendChild(testCanvas);
-          
-          const fabricTest = new fabric.Canvas(testCanvas);
-          console.log('Fabric canvas creation test: SUCCESS');
-          
-          // Clean up
-          fabricTest.dispose();
-          document.body.removeChild(testCanvas);
-        } catch (error) {
-          console.error('Fabric canvas creation test: FAILED', error);
-        }
-      };
-
-      // Test function to force load help content
-      window.forceLoadHelp = function() {
-        console.log('Force loading help content...');
-        if (typeof loadHelpContent === 'function') {
-          loadHelpContent();
-        } else {
-          console.error('loadHelpContent function not found!');
-        }
-      };
-
-      // Fabric.js Image Editing Functions
-      let fabricCanvas = null;
-      let fabricImage = null;
-      let originalImageData = null;
-
-      function openFabricEditor() {
-        console.log('openFabricEditor called');
-        
-        // Check if Fabric.js is available
-        if (typeof fabric === 'undefined') {
-          console.error('Fabric.js not available!');
-          alert('Fabric.js library is not loaded. Please refresh the page.');
-          return;
-        }
-        
-        const bgImage = document.getElementById('bgImage');
-        if (!bgImage || !bgImage.src) {
-          alert('Please upload a background image first!');
-          return;
-        }
-
-        const container = document.getElementById('fabricCanvasContainer');
-        const canvas = document.getElementById('fabricCanvas');
-        
-        if (!container || !canvas) {
-          console.error('Fabric canvas elements not found!');
-          return;
-        }
-
-        console.log('Opening fabric editor...');
-        
-        // Show the editor
-        container.style.display = 'block';
-
-        try {
-          // Get the original image dimensions for better quality
-          const bgImage = document.getElementById('bgImage');
-          const originalWidth = bgImage.naturalWidth || 1200;
-          const originalHeight = bgImage.naturalHeight || 800;
-          
-          // Use larger canvas for better quality (minimum 800x600)
-          const canvasWidth = Math.max(800, Math.min(originalWidth, 1200));
-          const canvasHeight = Math.max(600, Math.min(originalHeight, 800));
-          
-          console.log('Using canvas size:', canvasWidth, 'x', canvasHeight);
-          
-          // Update canvas element size
-          const canvasElement = document.getElementById('fabricCanvas');
-          canvasElement.width = canvasWidth;
-          canvasElement.height = canvasHeight;
-          canvasElement.style.maxWidth = '100%';
-          canvasElement.style.height = 'auto';
-          
-          // Initialize Fabric.js canvas with high quality settings
-          fabricCanvas = new fabric.Canvas('fabricCanvas', {
-            width: canvasWidth,
-            height: canvasHeight,
-            backgroundColor: '#f0f0f0',
-            enableRetinaScaling: true,
-            imageSmoothingEnabled: true,
-            imageSmoothingQuality: 'high',
-            renderOnAddRemove: true
-          });
-          
-          console.log('Fabric canvas created:', fabricCanvas);
-
-          // Load the background image into Fabric.js with maximum quality preservation
-          fabric.Image.fromURL(bgImage.src, function(img) {
-            console.log('Image loaded into fabric:', img);
-            fabricImage = img;
-            
-            // Preserve original image quality and make it editable
-            img.set({
-              selectable: true,
-              evented: true,
-              lockUniScaling: false,
-              hasControls: true,
-              hasBorders: true,
-              transparentCorners: false,
-              cornerColor: 'rgba(102,153,255,0.8)',
-              cornerSize: 12,
-              padding: 5
-            });
-            
-            // Calculate optimal scaling to fit canvas while preserving quality
-            const canvasWidth = fabricCanvas.getWidth();
-            const canvasHeight = fabricCanvas.getHeight();
-            const imgAspect = img.width / img.height;
-            const canvasAspect = canvasWidth / canvasHeight;
-            
-            let scaleX, scaleY;
-            if (imgAspect > canvasAspect) {
-              // Image is wider than canvas
-              scaleX = canvasWidth / img.width;
-              scaleY = scaleX;
-            } else {
-              // Image is taller than canvas
-              scaleY = canvasHeight / img.height;
-              scaleX = scaleY;
-            }
-            
-            // Apply scaling while preserving maximum quality
-            img.scale(scaleX);
-            img.set({
-              left: (canvasWidth - img.width * scaleX) / 2,
-              top: (canvasHeight - img.height * scaleY) / 2
-            });
-            
-            fabricCanvas.add(img);
-            fabricCanvas.renderAll();
-            
-            // Store original state with maximum quality
-            originalImageData = fabricCanvas.toDataURL({
-              format: 'png',
-              quality: 1.0,
-              multiplier: 1
-            });
-            console.log('Fabric editor ready with maximum quality settings!');
-          }, { 
-            crossOrigin: 'anonymous',
-            preserveAspectRatio: true,
-            imageSmoothingEnabled: true,
-            imageSmoothingQuality: 'high'
-          });
-          
-        } catch (error) {
-          console.error('Error initializing Fabric.js:', error);
-          alert('Error initializing image editor: ' + error.message);
-        }
-      }
-
-      function applyFilter(type, value) {
-        console.log('applyFilter called:', type, value);
-        
-        if (!fabricCanvas || !fabricImage) {
-          console.error('Fabric canvas or image not available');
-          alert('Please open the image editor first!');
-          return;
-        }
-
-        try {
-          switch(type) {
-            case 'brightness':
-              console.log('Applying brightness filter');
-              fabricImage.filters.push(new fabric.Image.filters.Brightness({ brightness: value - 1 }));
-              break;
-            case 'contrast':
-              console.log('Applying contrast filter');
-              fabricImage.filters.push(new fabric.Image.filters.Contrast({ contrast: value - 1 }));
-              break;
-            case 'saturation':
-              console.log('Applying saturation filter');
-              fabricImage.filters.push(new fabric.Image.filters.Saturation({ saturation: value - 1 }));
-              break;
-            case 'blur':
-              console.log('Applying blur filter');
-              fabricImage.filters.push(new fabric.Image.filters.Blur({ blur: value }));
-              break;
-            case 'sharpen':
-              console.log('Applying sharpen filter');
-              fabricImage.filters.push(new fabric.Image.filters.Convolute({
-                matrix: [0, -1, 0, -1, 5, -1, 0, -1, 0]
-              }));
-              break;
-            default:
-              console.error('Unknown filter type:', type);
-              return;
-          }
-          
-          console.log('Applying filters to image...');
-          fabricImage.applyFilters();
-          fabricCanvas.renderAll();
-          console.log('Filter applied successfully');
-          
-        } catch (error) {
-          console.error('Error applying filter:', error);
-          alert('Error applying filter: ' + error.message);
-        }
-      }
-
-      function rotateImage(angle) {
-        if (!fabricCanvas || !fabricImage) {
-          alert('Please open the image editor first!');
-          return;
-        }
-        
-        fabricImage.rotate((fabricImage.angle || 0) + angle);
-        fabricCanvas.renderAll();
-      }
-
-      function flipImage(direction) {
-        if (!fabricCanvas || !fabricImage) {
-          alert('Please open the image editor first!');
-          return;
-        }
-        
-        if (direction === 'horizontal') {
-          fabricImage.set('flipX', !fabricImage.flipX);
-        } else if (direction === 'vertical') {
-          fabricImage.set('flipY', !fabricImage.flipY);
-        }
-        
-        fabricCanvas.renderAll();
-      }
-
-      function scaleImage(factor) {
-        if (!fabricCanvas || !fabricImage) {
-          alert('Please open the image editor first!');
-          return;
-        }
-        
-        const currentScale = fabricImage.scaleX || 1;
-        const newScale = currentScale * factor;
-        
-        fabricImage.scale(newScale);
-        fabricCanvas.renderAll();
-      }
-
-      function applyEffect(effect) {
-        if (!fabricCanvas || !fabricImage) {
-          alert('Please open the image editor first!');
-          return;
-        }
-
-        // Remove existing filters
-        fabricImage.filters = [];
-        
-        switch(effect) {
-          case 'grayscale':
-            fabricImage.filters.push(new fabric.Image.filters.Grayscale());
-            break;
-          case 'sepia':
-            fabricImage.filters.push(new fabric.Image.filters.Sepia());
-            break;
-          case 'invert':
-            fabricImage.filters.push(new fabric.Image.filters.Invert());
-            break;
-          case 'vintage':
-            fabricImage.filters.push(
-              new fabric.Image.filters.Sepia(),
-              new fabric.Image.filters.Brightness({ brightness: -0.1 }),
-              new fabric.Image.filters.Contrast({ contrast: 0.1 })
-            );
-            break;
-          case 'warm':
-            fabricImage.filters.push(
-              new fabric.Image.filters.Brightness({ brightness: 0.1 }),
-              new fabric.Image.filters.Saturation({ saturation: 0.2 })
-            );
-            break;
-          case 'cool':
-            fabricImage.filters.push(
-              new fabric.Image.filters.Brightness({ brightness: -0.05 }),
-              new fabric.Image.filters.Saturation({ saturation: -0.1 })
-            );
-            break;
-        }
-        
-        fabricImage.applyFilters();
-        fabricCanvas.renderAll();
-      }
-
-      function saveFabricChanges() {
-        if (!fabricCanvas) {
-          alert('No changes to save!');
-          return;
-        }
-
-        try {
-          console.log('Saving fabric changes with high quality...');
-          
-          // Get quality setting from dropdown
-          const qualitySelect = document.getElementById('fabricQuality');
-          const qualityValue = qualitySelect ? qualitySelect.value : '2';
-          
-          let qualityMultiplier = 2;
-          if (qualityValue === 'original') {
-            // Use original image dimensions for maximum quality
-            const bgImage = document.getElementById('bgImage');
-            const originalWidth = bgImage.naturalWidth || 1200;
-            const originalHeight = bgImage.naturalHeight || 800;
-            qualityMultiplier = Math.max(originalWidth / fabricCanvas.getWidth(), originalHeight / fabricCanvas.getHeight());
-            console.log('Using original size multiplier:', qualityMultiplier);
-          } else {
-            qualityMultiplier = parseInt(qualityValue);
-            console.log('Using quality multiplier:', qualityMultiplier);
-          }
-          
-          // Get the edited image data with maximum quality settings
-          const editedImageData = fabricCanvas.toDataURL({
-            format: 'png',
-            quality: 1.0,
-            multiplier: qualityMultiplier,
-            enableRetinaScaling: true
-          });
-          
-          console.log('Image data generated, updating background...');
-          
-          // Update the background image
-          const bgImage = document.getElementById('bgImage');
-          if (bgImage) {
-            // Create a new image to ensure proper loading
-            const newImage = new Image();
-            newImage.onload = function() {
-              bgImage.src = this.src;
-              bgImage.style.display = 'block';
-              
-              // Close the editor
-              cancelFabricChanges();
-              
-              // Update the banner
-              if (bannerCreator) {
-                bannerCreator.updateBanner();
-              }
-              
-              console.log('Image changes applied successfully!');
-              alert('Image changes applied successfully!');
-            };
-            newImage.onerror = function() {
-              console.error('Error loading edited image');
-              alert('Error applying image changes. Please try again.');
-            };
-            newImage.src = editedImageData;
-          } else {
-            console.error('Background image element not found');
-            alert('Error: Background image element not found');
-          }
-          
-        } catch (error) {
-          console.error('Error saving fabric changes:', error);
-          alert('Error saving changes: ' + error.message);
-        }
-      }
-
-      function cancelFabricChanges() {
-        const container = document.getElementById('fabricCanvasContainer');
-        if (container) {
-          container.style.display = 'none';
-        }
-        
-        if (fabricCanvas) {
-          fabricCanvas.dispose();
-          fabricCanvas = null;
-          fabricImage = null;
-        }
-      }
-
-      function resetFabricChanges() {
-        if (originalImageData && fabricCanvas) {
-          fabricCanvas.loadFromJSON(originalImageData, function() {
-            fabricCanvas.renderAll();
-          });
-        }
-      }
-
-      function applyFabricChanges() {
-        saveFabricChanges();
-      }
-
-      // Make Fabric.js functions globally accessible
-      window.openFabricEditor = openFabricEditor;
-      window.applyFilter = applyFilter;
-      window.rotateImage = rotateImage;
-      window.flipImage = flipImage;
-      window.scaleImage = scaleImage;
-      window.applyEffect = applyEffect;
-      window.saveFabricChanges = saveFabricChanges;
-      window.cancelFabricChanges = cancelFabricChanges;
-      window.resetFabricChanges = resetFabricChanges;
-      window.applyFabricChanges = applyFabricChanges;
-
-      // Logo Type Button Functions
-      function setLogoType(type) {
-        console.log('Setting logo type to:', type);
-        
-        // Update the hidden input value
-        const logoTypeInput = document.getElementById('logoType');
-        if (logoTypeInput) {
-          logoTypeInput.value = type;
-        }
-        
-        // Update button states
-        const buttons = document.querySelectorAll('.logo-type-btn');
-        buttons.forEach(btn => {
-          if (btn.dataset.type === type) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
-        });
-        
-        // Toggle icon controls visibility
-        const iconControls = document.getElementById('iconControls');
-        
-        const logoUploadGroup = document.querySelector('input[type="file"]#logoUpload')?.parentElement;
-        
-        if (type === 'icon') {
-          if (iconControls) iconControls.style.display = 'block';
- 
-          if (logoUploadGroup) logoUploadGroup.style.display = 'none';
-        } else {
-          if (iconControls) iconControls.style.display = 'none';
- 
-          if (logoUploadGroup) logoUploadGroup.style.display = 'block';
-        }
-        
-        // Update the banner
-        if (bannerCreator) {
-          bannerCreator.updateBanner();
-        }
-      }
-
-      // Help Panel Functions
-      function toggleHelpPanel() {
-        console.log('toggleHelpPanel called');
-        const helpPanel = document.getElementById('helpPanel');
-        console.log('helpPanel element:', helpPanel);
-        
-        if (helpPanel) {
-          helpPanel.classList.toggle('active');
-          console.log('Help panel active:', helpPanel.classList.contains('active'));
-          
-          // Load help content if not already loaded
-          if (helpPanel.classList.contains('active')) {
-            console.log('Help panel is active, loading content...');
-            setTimeout(() => {
-              loadHelpContent();
-            }, 100); // Small delay to ensure panel is visible
-          }
-        } else {
-          console.error('Help panel element not found!');
-        }
-      }
-
-      function loadHelpContent() {
-        console.log('loadHelpContent called');
-        const helpContent = document.getElementById('helpContent');
-        console.log('helpContent element:', helpContent);
-        
-        if (!helpContent) {
-          console.error('Help content element not found!');
-          return;
-        }
-        
-        console.log('Current help content:', helpContent.innerHTML.trim());
-        
-        // Always load content for now (remove the condition that was preventing loading)
-        console.log('Loading help content...');
-
-        helpContent.innerHTML = `
-          <div class="help-section">
-            <h4>🎨 Getting Started</h4>
-            <p>Welcome to the Canvas Banner Creator! This tool helps you create beautiful banners for your Canvas LMS courses.</p>
-            <div class="help-tip">
-              <strong>Quick Start:</strong> Choose a template preset, add your course title, and export as HTML for Canvas.
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>📝 Text Content</h4>
-            <p>Add your course title and optional subtitles. You can customize colors and fonts to match your course theme.</p>
-            <div class="help-tip">
-              <strong>Tip:</strong> Keep titles concise - Canvas course cards have limited space.
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>🎯 Quick Templates</h4>
-            <p>Choose from pre-designed templates for different course types. Each template includes appropriate colors and styling.</p>
-            <div class="help-tip">
-              <strong>Available:</strong> Academic, Business, Science, Arts, Technology, Healthcare, Education, Engineering, Humanities
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>🖼️ Images & Icons</h4>
-            <p>Upload background images or choose from Unsplash. For logos, you can upload images or use icons/emojis.</p>
-            <div class="help-tip">
-              <strong>Canvas Tip:</strong> Use icons/emojis instead of uploaded images for better Canvas compatibility.
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>🎨 Colors & Styling</h4>
-            <p>Use Sinclair brand colors or create custom gradients. All colors are optimized for accessibility.</p>
-            <div class="help-tip">
-              <strong>Brand Colors:</strong> Sinclair Red, Charcoal, Black, Royal Blue, Green, Aqua, Purple, Mint
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>📐 Dimensions</h4>
-            <p>Set custom dimensions or use preset sizes for Canvas course cards and banners.</p>
-            <div class="help-tip">
-              <strong>Recommended:</strong> Canvas Course Card (262x147px) or Canvas Banner (1200x200px)
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>💾 Export Options</h4>
-            <p>Export as PNG, PDF, JPG, WebP, SVG, or HTML. HTML export is perfect for Canvas LMS.</p>
-            <div class="help-tip">
-              <strong>Canvas Export:</strong> Use "Export as HTML" for direct Canvas compatibility with inline styles.
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>🔧 Advanced Features</h4>
-            <p>• <strong>Background Images:</strong> Upload or search Unsplash, adjust position and opacity</p>
-            <p>• <strong>Decorative Shapes:</strong> Add accent bars, corners, or geometric shapes</p>
-            <p>• <strong>Typography:</strong> Choose from 15+ fonts, adjust sizes and alignment</p>
-            <p>• <strong>Icon Search:</strong> Browse 1000+ Material Design icons by category</p>
-          </div>
-
-          <div class="help-section">
-            <h4>🎯 Canvas LMS Tips</h4>
-            <p>• Use HTML export for best Canvas compatibility</p>
-            <p>• Keep file sizes small for faster loading</p>
-            <p>• Test your banner in Canvas before finalizing</p>
-            <p>• Use high contrast colors for accessibility</p>
-            <div class="help-tip">
-              <strong>Pro Tip:</strong> Copy the HTML code and paste it directly into Canvas's HTML editor.
-            </div>
-          </div>
-
-          <div class="help-section">
-            <h4>❓ Troubleshooting</h4>
-            <p><strong>Image not loading?</strong> Try using icons instead of uploaded images.</p>
-            <p><strong>Export not working?</strong> Check that all elements are loaded before exporting.</p>
-            <p><strong>Colors look wrong?</strong> Try different export formats or check browser compatibility.</p>
-            <div class="help-tip">
-              <strong>Need Help?</strong> Try refreshing the page or using a different browser.
-            </div>
-          </div>
-        `;
-      }
-
-      // Make functions globally accessible
-      window.toggleHelpPanel = toggleHelpPanel;
-      window.loadHelpContent = loadHelpContent;
-      window.setLogoType = setLogoType;
-
-      // Initialize help panel on page load
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM loaded, initializing help panel...');
-        
-        // Load help content if help panel is opened
-        const helpToggle = document.querySelector('.help-toggle');
-        console.log('Help toggle button found:', helpToggle);
-        
-        if (helpToggle) {
-          helpToggle.addEventListener('click', function() {
-            console.log('Help toggle clicked');
-            setTimeout(loadHelpContent, 100);
-          });
-        } else {
-          console.error('Help toggle button not found!');
-        }
-      });
     });
   </script>
 </body>
